@@ -32,7 +32,6 @@ class Description extends Model
 
     public function update($id){
         $site = Site::findOne(['id'=>$id]);
-        $site->url = $this->url;
         $site->description = $this->description;
         $site->update();
         return true;

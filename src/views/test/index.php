@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<button type="button" class="btn btn-info">Add Description</button>
+<a href="<?=Url::to(['add-description'])?>" class="btn btn-info">Add Description</a>
 <ul class="list-group">
     <?php use yii\helpers\Url;
 

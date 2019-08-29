@@ -11,7 +11,7 @@ $form = ActiveForm::begin();
 
 <?=$form->field($model,'description')->textarea(['value'=>$site['description']]);?>
 
-<?= Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
+<?= Html::submitButton('Change', ['class' => 'btn btn-primary']) ?><br>
 <a class="btn btn-primary" href="<?=Url::to(['delete','id'=>$site['id']])?>">Delete</a>
 
 <?php ActiveForm::end();?>
