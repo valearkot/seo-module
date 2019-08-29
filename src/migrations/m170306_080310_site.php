@@ -1,6 +1,6 @@
 <?php
 use yii\db\Migration;
-class m170306_083010_tests extends Migration
+class m170306_080310_site extends Migration
 {
     public function safeUp()
     {

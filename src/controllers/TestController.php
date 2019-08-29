@@ -9,8 +9,9 @@
 namespace valearkot\yii2module\controllers;
 
 
-use valearkot\yii2module\Description;
-use valearkot\yii2module\Site;
+
+use valearkot\yii2module\models\Description;
+use valearkot\yii2module\models\Site;
 use Yii;
 use yii\web\Controller;
 

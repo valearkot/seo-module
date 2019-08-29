@@ -6,7 +6,7 @@
  * Time: 14:57
  */
 
-namespace valearkot\yii2module;
+namespace valearkot\yii2module\models;
 
 
 use yii\db\ActiveRecord;

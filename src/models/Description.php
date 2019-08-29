@@ -6,7 +6,7 @@
  * Time: 15:00
  */
 
-namespace valearkot\yii2module;
+namespace valearkot\yii2module\models;
 
 
 use yii\base\Model;
