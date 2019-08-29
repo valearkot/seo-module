@@ -19,7 +19,7 @@ class Description extends Model
     public function rules()
     {
         return [
-            [['url','description'],'require']
+            [['url','description'],'required']
         ];
     }
     public function add(){
