@@ -9,6 +9,7 @@
 namespace valearkot\yii2module;
 
 use yii\web\AssetBundle;
+
 class TestsAssetsBundle extends AssetBundle
 {
     public $sourcePath = '@vendor/valearkot/yii2-module/assets';

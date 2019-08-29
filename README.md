@@ -21,11 +21,7 @@ or add
 
 to the require section of your `composer.json` file.
 
-
-Usage
------
-
-Once the extension is installed, simply use it in your code by  :
-
-```php
-<?= \valearkot\yii2module\AutoloadExample::widget(); ?>```
+* Migrate to create the desired table in the database (console):
+```
+yii migrate --migrationPath=@valearkot/yii2module/migrations --interactive=0
+```

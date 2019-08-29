@@ -9,6 +9,7 @@
 namespace valearkot\yii2module;
 
 use yii\base\Module as BaseModule;
+
 class Module extends BaseModule
 {
     public $controllerNamespace = 'valearkot\yii2module\controllers';

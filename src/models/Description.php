@@ -19,19 +19,22 @@ class Description extends Model
     public function rules()
     {
         return [
-            [['url','description'],'required']
+            [['url', 'description'], 'required']
         ];
     }
-    public function add(){
+    //add new description and url
+    public function add()
+    {
         $site = new Site();
         $site->url = $this->url;
         $site->description = $this->description;
         $site->save();
         return true;
     }
-
-    public function update($id){
-        $site = Site::findOne(['id'=>$id]);
+    //update description for url
+    public function update($id)
+    {
+        $site = Site::findOne(['id' => $id]);
         $site->description = $this->description;
         $site->update();
         return true;
