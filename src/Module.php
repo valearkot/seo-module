@@ -8,8 +8,6 @@
 
 namespace valearkot\yii2module;
 
-
-namespace klisl\mytest;
 use yii\base\Module as BaseModule;
 class Module extends BaseModule
 {
