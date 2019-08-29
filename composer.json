@@ -13,6 +13,10 @@
     "require": {
         "yiisoft/yii2": "~2.0.0"
     },
+    "minimum-stability": "stable",
+    "extra": {
+        "bootstrap": "valearkot\\yii2module\\Bootstrap"
+    },
     "autoload": {
         "psr-4": {
             "valearkot\\yii2module\\": "src/"
