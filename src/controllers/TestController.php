@@ -14,6 +14,7 @@ use yii\web\Controller;
 class TestController extends Controller
 {
     public function actionIndex(){
+        valearkot\yii2module\TestsAssetsBundle::register($this->view);
         return $this->render('index');
     }
 }
