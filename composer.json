@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "valearkot\\yii2module\\": ""
+            "valearkot\\yii2module\\": "src/"
         }
     }
 }
