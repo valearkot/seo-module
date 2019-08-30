@@ -25,3 +25,27 @@ to the require section of your `composer.json` file.
 ```
 yii migrate --migrationPath=@valearkot/yii2module/migrations --interactive=0
 ```
+And then add this to your application configuration:
+
+```php
+<?php
+return [
+
+    // ...
+
+    'components' => [
+        // ...
+
+        // Override the urlManager component
+        'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+
+            // List all supported languages here
+            // Make sure, you include your app's default language.
+            'languages' => ['en-US', 'en', 'fr', 'de', 'es-*'],
+        ]
+
+        // ...
+    ]
+];
+```
