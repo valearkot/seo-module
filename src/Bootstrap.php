@@ -12,17 +12,20 @@ namespace valearkot\yii2module;
 use Yii;
 use yii\base\BootstrapInterface;
 class Bootstrap implements BootstrapInterface{
-    //Метод, который вызывается автоматически при каждом запросе
+    //A method that is called automatically with every request
     public function bootstrap($app)
     {
-        //Правила маршрутизации
+        //Routing rules
         $app->getUrlManager()->addRules([
             'test' => 'yii2module/test/index',
         ], false);
-        /*
-         * Регистрация модуля в приложении
-         * (вместо указания в файле frontend/config/main.php
-         */
+        //Add multilingualism
+        $app->i18n->translations['valearkot/yii2-module/*'] = [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'forceTranslation' => true,
+            'basePath' => '@vendor/valearkot/yii2-module/src/language',
+        ];
+
         $app->setModule('yii2module', 'valearkot\yii2module\Module');
     }
 }
