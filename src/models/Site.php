@@ -1,20 +1,46 @@
 <?php
+
+namespace app\models;
+
+use Yii;
+
 /**
- * Created by PhpStorm.
- * User: laptop
- * Date: 29.08.2019
- * Time: 14:57
+ * This is the model class for table "site".
+ *
+ * @property int $id
+ * @property string $url
+ * @property string $description
  */
-
-namespace valearkot\yii2module\models;
-
-
-use yii\db\ActiveRecord;
-
-class Site extends ActiveRecord
+class Site extends \yii\db\ActiveRecord
 {
+    /**
+     * {@inheritdoc}
+     */
     public static function tableName()
     {
         return 'site';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['url', 'description'], 'required'],
+            [['url', 'description'], 'string'],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'url' => 'Url',
+            'description' => 'Description',
+        ];
     }
 }
