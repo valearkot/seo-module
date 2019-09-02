@@ -42,10 +42,26 @@ return [
 
             // List all supported languages here
             // Make sure, you include your app's default language.
-            'languages' => ['en-US', 'en', 'fr', 'de', 'es-*'],
+            'languages' => $params['language'],
         ]
 
         // ...
     ]
+];
+```
+Add in params.php:
+
+```php
+<?php
+return [
+
+
+    'language' =>
+            [
+                'ru',
+                'de',
+                'en'
+                //For example
+            ],
 ];
 ```
