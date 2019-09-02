@@ -2,9 +2,9 @@
 
 namespace valearkot\yii2module\controllers;
 
+use valearkot\yii2module\models\Site;
+use valearkot\yii2module\models\SiteSearch;
 use Yii;
-use app\models\Site;
-use app\models\SiteSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
