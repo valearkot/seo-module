@@ -34,8 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
     <?php foreach ($all_description as $key => $value):?>
-        <tr><th>$key</th><td><span class="not-set">$value</span></td></tr>
-    <?endforeach;?>
+        <tr><th><?=$key?></th><td><span class="not-set"><?=$value?></span></td></tr><br>
+    <?php endforeach;?>
 
 
 </div>

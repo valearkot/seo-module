@@ -72,8 +72,6 @@ class Description extends Model
         foreach ($this->description as $key => $value) {
             if ($key != Yii::$app->sourceLanguage && $value != null) {
                 $message = Message::findOne(['id' => $site->description, 'language' => $key]);
-                $message->id = $id_message;
-                $message->language = $key;
                 $message->translation = $value;
                 $message->update();
             }
