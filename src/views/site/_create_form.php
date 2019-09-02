@@ -10,8 +10,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'url')->textarea(['rows' => 6]) ?>
-    <?php foreach ($all_description as $key => $value):?>
-        <?= $form->field($model, 'description['.$key.']')->textarea(['rows' => 6])->label($key) ?>
+    <?php foreach ($language as $lang):?>
+        <?= $form->field($model, 'description['.$lang.']')->textarea(['rows' => 6])->label($lang) ?>
     <?php endforeach;?>
 
 

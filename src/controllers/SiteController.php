@@ -55,8 +55,19 @@ class SiteController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $all_description = [];
+        $source_message = SourceMessage::find()->where(['id' => $model['description']])->asArray()->one();
+
+        if (!empty($source_message)) {
+            $message = Message::find()->where(['id' => $model['description']])->asArray()->all();
+
+            $all_description = !empty($message) ? ArrayHelper::map($message, 'language', 'translation') : [];
+            $all_description[Yii::$app->sourceLanguage] = $source_message['message'];
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'all_description' => $all_description
         ]);
     }
 
@@ -67,6 +78,8 @@ class SiteController extends Controller
      */
     public function actionCreate()
     {
+        $params = Yii::$app->params;
+        $language = $params['language'];
         $model = new Site();
         $description = new Description();
 
@@ -79,6 +92,7 @@ class SiteController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'language' => $language,
         ]);
     }
 
@@ -91,8 +105,7 @@ class SiteController extends Controller
      */
     public function actionUpdate($id)
     {
-        $params = Yii::$app->params;
-        $language = $params['language'];
+
         $model = $this->findModel($id);
         $all_description = [];
         $source_message = SourceMessage::find()->where(['id' => $model['description']])->asArray()->one();
@@ -116,7 +129,6 @@ class SiteController extends Controller
 
         return $this->render('update', [
             'model' => $model,
-            'language' => $language,
             'all_description' => $all_description
         ]);
     }
