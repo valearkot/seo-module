@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'url')->textarea(['rows' => 6]) ?>
     <?php foreach ($all_description as $key => $value):?>
-        <?= $form->field($model, 'description['.$key.']')->textarea(['rows' => 6,'value'=>$value])->label($key) ?>
+        <?= $form->field($model, 'description['.$key.']')->textarea(['rows' => 6])->label($key) ?>
     <?php endforeach;?>
 
 

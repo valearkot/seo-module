@@ -2,8 +2,11 @@
 
 namespace valearkot\yii2module\controllers;
 
+use valearkot\yii2module\models\Description;
+use valearkot\yii2module\models\Message;
 use valearkot\yii2module\models\Site;
 use valearkot\yii2module\models\SiteSearch;
+use valearkot\yii2module\models\SourceMessage;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -65,9 +68,13 @@ class SiteController extends Controller
     public function actionCreate()
     {
         $model = new Site();
+        $description = new Description();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->post()) {
+            $description->attributes = Yii::$app->request->post('Site');
+            if ($description->add()) {
+                return $this->redirect('index');
+            }
         }
 
         return $this->render('create', [
@@ -84,14 +91,33 @@ class SiteController extends Controller
      */
     public function actionUpdate($id)
     {
+        $params = Yii::$app->params;
+        $language = $params['language'];
         $model = $this->findModel($id);
+        $all_description = [];
+        $source_message = SourceMessage::find()->where(['id' => $model['description']])->asArray()->one();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (!empty($source_message)) {
+            $message = Message::find()->where(['id' => $model['description']])->asArray()->all();
+
+            $all_description = !empty($message) ? ArrayHelper::map($message, 'language', 'translation') : [];
+            $all_description[Yii::$app->sourceLanguage] = $source_message['message'];
+        }
+
+        $description = new Description();
+
+        if (Yii::$app->request->post()) {
+            $description->attributes = Yii::$app->request->post('Site');
+            if ($description->update($id)) {
+                return $this->redirect('index');
+            }
+
         }
 
         return $this->render('update', [
             'model' => $model,
+            'language' => $language,
+            'all_description' => $all_description
         ]);
     }
 

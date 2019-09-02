@@ -21,9 +21,7 @@ class Bootstrap implements BootstrapInterface{
         ], false);
         //Add multilingualism
         $app->i18n->translations['valearkot/yii2-module/*'] = [
-            'class' => 'yii\i18n\PhpMessageSource',
-            'forceTranslation' => true,
-            'basePath' => '@vendor/valearkot/yii2-module/src/language',
+            'class' => 'yii\i18n\DbMessageSource',
         ];
 
         $app->setModule('yii2module', 'valearkot\yii2module\Module');
