@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace valearkot\yii2module\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
