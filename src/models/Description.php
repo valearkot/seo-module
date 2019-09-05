@@ -58,7 +58,9 @@ class Description extends Model
     {
         $site = Site::findOne(['id' => $id]);
         $source_message = SourceMessage::findOne(['id'=>$site->description]);
+
         //Update information for text in source language
+
         if (array_key_exists(Yii::$app->sourceLanguage, $this->description)) {
             if ($this->description[Yii::$app->sourceLanguage] != null) {
                 $source_message->category = 'app';
