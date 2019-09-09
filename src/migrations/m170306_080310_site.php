@@ -13,7 +13,8 @@ class m170306_080310_site extends Migration
         $this->createTable('site', [
             'id' => $this->primaryKey(),
             'url' => $this->text()->notNull(),
-            'description' => $this->text()->notNull(),
+            'title' => $this->integer()->notNull(),
+            'description' => $this->integer()->notNull(),
         ], $tableOptions);
     }
     public function safeDown()

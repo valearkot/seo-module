@@ -11,7 +11,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'url')->textarea(['rows' => 6]) ?>
     <?php foreach ($language as $lang):?>
-        <?= $form->field($model, 'description['.$lang.']')->textarea(['rows' => 6])->label($lang) ?>
+    <label>For <?=$lang?></label>
+        <?= $form->field($model, 'title['.$lang.']')->textInput()->label(false) ?>
+        <?= $form->field($model, 'description['.$lang.']')->textarea(['rows' => 6])->label(false) ?>
     <?php endforeach;?>
 
 
