@@ -109,13 +109,18 @@ class SiteController extends Controller
 
         $model = $this->findModel($id);
         $all_description = [];
+        $all_title = [];
         $source_message = SourceMessage::find()->where(['id' => $model['description']])->asArray()->one();
+        $source_title = SourceMessage::find()->where(['id' => $model['title']])->asArray()->one();
 
         if (!empty($source_message)) {
             $message = Message::find()->where(['id' => $model['description']])->asArray()->all();
+            $title = Message::find()->where(['id' => $model['title']])->asArray()->all();
 
             $all_description = !empty($message) ? ArrayHelper::map($message, 'language', 'translation') : [];
+            $all_title = !empty($title) ? ArrayHelper::map($title, 'language', 'translation') : [];
             $all_description[Yii::$app->sourceLanguage] = $source_message['message'];
+            $all_title[Yii::$app->sourceLanguage] = $source_title['message'];
         }
 
         $description = new Description();
@@ -130,7 +135,8 @@ class SiteController extends Controller
 
         return $this->render('update', [
             'model' => $model,
-            'all_description' => $all_description
+            'all_description' => $all_description,
+            'all_title' => $all_title,
         ]);
     }
 

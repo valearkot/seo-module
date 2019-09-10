@@ -113,11 +113,11 @@ class Description extends Model
 
         //Update information for title in source language
 
-        if (array_key_exists(Yii::$app->sourceLanguage, $this->description)) {
+        if (array_key_exists(Yii::$app->sourceLanguage, $this->title)) {
             if ($this->title[Yii::$app->sourceLanguage] != null) {
-                $source_message->category = 'app';
-                $source_message->message = $this->title[Yii::$app->sourceLanguage];
-                $source_message->update();
+                $source_title->category = 'app';
+                $source_title->message = $this->title[Yii::$app->sourceLanguage];
+                $source_title->update();
             }
 
         }
