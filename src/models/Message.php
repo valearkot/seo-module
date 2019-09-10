@@ -1,6 +1,6 @@
 <?php
 
-namespace app\runtime\tmpextensions\mymodule\src\models;
+namespace valearkot\yii2module\models;
 
 use Yii;
 

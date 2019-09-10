@@ -92,45 +92,40 @@ class Description extends Model
         $source_title = SourceMessage::findOne(['id'=>$site->title]);
 
         //Update information for text in source language
-
         if (array_key_exists(Yii::$app->sourceLanguage, $this->description)) {
             if ($this->description[Yii::$app->sourceLanguage] != null) {
                 $source_message->category = 'app';
                 $source_message->message = $this->description[Yii::$app->sourceLanguage];
                 $source_message->update();
             }
-
-        }
-
-        //Update text for translit
-        foreach ($this->description as $key => $value) {
-            if ($key != Yii::$app->sourceLanguage && $value != null) {
-                $message = Message::findOne(['id' => $site->description, 'language' => $key]);
-                $message->translation = $value;
-                $message->update();
+            //Update text for translit
+            foreach ($this->description as $key => $value) {
+                if ($key != Yii::$app->sourceLanguage && $value != null) {
+                    $message = Message::findOne(['id' => $site->description, 'language' => $key]);
+                    $message->translation = $value;
+                    $message->update();
+                }
             }
+
         }
 
         //Update information for title in source language
-
         if (array_key_exists(Yii::$app->sourceLanguage, $this->title)) {
             if ($this->title[Yii::$app->sourceLanguage] != null) {
                 $source_title->category = 'app';
                 $source_title->message = $this->title[Yii::$app->sourceLanguage];
                 $source_title->update();
             }
-
-        }
-
-        //Update title for translit
-        foreach ($this->title as $key => $value) {
-            if ($key != Yii::$app->sourceLanguage && $value != null) {
-                $message = Message::findOne(['id' => $site->title, 'language' => $key]);
-                $message->translation = $value;
-                $message->update();
+            //Update title for translit
+            foreach ($this->title as $key => $value) {
+                if ($key != Yii::$app->sourceLanguage && $value != null) {
+                    $message = Message::findOne(['id' => $site->title, 'language' => $key]);
+                    $message->translation = $value;
+                    $message->update();
+                }
             }
-        }
 
+        }
 
         $site->url = $this->url ;
         $site->save();
