@@ -4,7 +4,7 @@ namespace valearkot\yii2module\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\runtime\tmpextensions\mymodule\src\models\Site;
+use valearkot\yii2module\models\Site;
 
 /**
  * SiteSearch represents the model behind the search form of `app\runtime\tmpextensions\mymodule\src\models\Site`.
