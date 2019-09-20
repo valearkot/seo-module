@@ -4,14 +4,14 @@ namespace valearkot\yii2module\controllers;
 
 use valearkot\yii2module\models\Description;
 use valearkot\yii2module\models\Message;
-use valearkot\yii2module\models\Site;
-use valearkot\yii2module\models\SiteSearch;
 use valearkot\yii2module\models\SourceMessage;
 use Yii;
+use valearkot\yii2module\models\Site;
+use valearkot\yii2module\models\SiteSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\helpers\ArrayHelper;
 
 /**
  * SiteController implements the CRUD actions for Site model.
@@ -110,17 +110,22 @@ class SiteController extends Controller
         $model = $this->findModel($id);
         $all_description = [];
         $all_title = [];
+        $all_keywords = [];
         $source_message = SourceMessage::find()->where(['id' => $model['description']])->asArray()->one();
         $source_title = SourceMessage::find()->where(['id' => $model['title']])->asArray()->one();
+        $source_keywords = SourceMessage::find()->where(['id' => $model['keywords']])->asArray()->one();
 
-        if (!empty($source_message)) {
+        if (!empty($source_message) && !empty($source_title) && !empty($source_keywords)) {
             $message = Message::find()->where(['id' => $model['description']])->asArray()->all();
             $title = Message::find()->where(['id' => $model['title']])->asArray()->all();
+            $keywords = Message::find()->where(['id' => $model['keywords']])->asArray()->all();
 
             $all_description = !empty($message) ? ArrayHelper::map($message, 'language', 'translation') : [];
             $all_title = !empty($title) ? ArrayHelper::map($title, 'language', 'translation') : [];
+            $all_keywords = !empty($title) ? ArrayHelper::map($keywords, 'language', 'translation') : [];
             $all_description[Yii::$app->sourceLanguage] = $source_message['message'];
             $all_title[Yii::$app->sourceLanguage] = $source_title['message'];
+            $all_keywords[Yii::$app->sourceLanguage] = $source_keywords['message'];
         }
 
         $description = new Description();
@@ -137,6 +142,7 @@ class SiteController extends Controller
             'model' => $model,
             'all_description' => $all_description,
             'all_title' => $all_title,
+            'all_keywords' => $all_keywords,
         ]);
     }
 

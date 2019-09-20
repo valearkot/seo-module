@@ -9,7 +9,9 @@ use Yii;
  *
  * @property int $id
  * @property string $url
- * @property string $description
+ * @property int $title
+ * @property int $keywords
+ *@property int $description
  */
 class Site extends \yii\db\ActiveRecord
 {
@@ -27,8 +29,9 @@ class Site extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['url', 'description'], 'required'],
-            [['url', 'description'], 'string'],
+            [['url', 'title', 'keywords', 'description'], 'required'],
+            [['url'], 'string'],
+            [[ 'title', 'keywords', 'description'], 'integer'],
         ];
     }
 
@@ -40,6 +43,8 @@ class Site extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'url' => 'Url',
+            'title' => 'Title',
+            'keywords' => 'Keywords',
             'description' => 'Description',
         ];
     }

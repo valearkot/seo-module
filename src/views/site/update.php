@@ -3,11 +3,11 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Site */
+/* @var $model app\runtime\tmpextensions\mymodule\src\models\Site */
 
-$this->title = 'Update Site: ' . $model->id;
+$this->title = 'Update Site: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Sites', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="site-update">
@@ -16,7 +16,9 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
-        'all_description' => $all_description
+        'all_description' => $all_description,
+        'all_title' => $all_title,
+        'all_keywords' => $all_keywords,
     ]) ?>
 
 </div>

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\SiteSearch */
+/* @var $searchModel app\runtime\tmpextensions\mymodule\src\models\SiteSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Sites';
@@ -28,7 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'url:ntext',
-            'description:ntext',
+            'description',
+            'title',
+            'keywords',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

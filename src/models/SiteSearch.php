@@ -4,10 +4,10 @@ namespace valearkot\yii2module\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-
+use app\runtime\tmpextensions\mymodule\src\models\Site;
 
 /**
- * SiteSearch represents the model behind the search form of `app\models\Site`.
+ * SiteSearch represents the model behind the search form of `app\runtime\tmpextensions\mymodule\src\models\Site`.
  */
 class SiteSearch extends Site
 {
@@ -17,8 +17,8 @@ class SiteSearch extends Site
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['url', 'description'], 'safe'],
+            [['id', 'description', 'title', 'keywords'], 'integer'],
+            [['url'], 'safe'],
         ];
     }
 
@@ -59,10 +59,12 @@ class SiteSearch extends Site
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'description' => $this->description,
+            'title' => $this->title,
+            'keywords' => $this->keywords,
         ]);
 
-        $query->andFilterWhere(['like', 'url', $this->url])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'url', $this->url]);
 
         return $dataProvider;
     }

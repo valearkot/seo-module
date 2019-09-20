@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Site */
+/* @var $model app\runtime\tmpextensions\mymodule\src\models\Site */
 
 $this->title = 'Create Site';
 $this->params['breadcrumbs'][] = ['label' => 'Sites', 'url' => ['index']];
@@ -13,9 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_create_form', [
+    <?= $this->render('_form', [
         'model' => $model,
-        'language' => $language,
+        'language' => $language
     ]) ?>
 
 </div>

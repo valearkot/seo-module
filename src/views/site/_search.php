@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\SiteSearch */
+/* @var $model app\runtime\tmpextensions\mymodule\src\models\SiteSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -20,6 +20,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'url') ?>
 
     <?= $form->field($model, 'description') ?>
+
+    <?= $form->field($model, 'title') ?>
+
+    <?= $form->field($model, 'keywords') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

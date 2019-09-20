@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Site */
+/* @var $model app\runtime\tmpextensions\mymodule\src\models\Site */
 
-$this->title = $model->id;
+$this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Sites', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -31,11 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'url:ntext',
+            'description',
+            'title',
+            'keywords',
         ],
     ]) ?>
-    <?php foreach ($all_description as $key => $value):?>
-        <tr><th><?=$key?></th><td><span class="not-set"><?=$value?></span></td></tr><br>
-    <?php endforeach;?>
-
 
 </div>

@@ -14,6 +14,7 @@ class m170306_080310_site extends Migration
             'id' => $this->primaryKey(),
             'url' => $this->text()->notNull(),
             'title' => $this->integer()->notNull(),
+            'keywords' => $this->integer()->notNull(),
             'description' => $this->integer()->notNull(),
         ], $tableOptions);
     }

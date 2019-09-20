@@ -25,6 +25,19 @@ to the require section of your `composer.json` file.
 ```
 yii migrate --migrationPath=@valearkot/yii2module/migrations --interactive=0
 ```
+* Migrate i18n datebase:
+```
+./yii migrate --migrationPath='@yii/i18n/migrations'
+```
+* In config.php :
+```
+<?php 
+$config = [
+    'id' => 'basic',
+    'language' => 'en',
+    'sourceLanguage' => 'en',
+
+```
 And then add this to your application configuration:
 
 ```php
