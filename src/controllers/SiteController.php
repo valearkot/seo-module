@@ -32,6 +32,8 @@ class SiteController extends Controller
             ],
         ];
     }
+    
+    public $layout = '@app/modules/admin/views/layouts/main.php';
 
     /**
      * Lists all Site models.
