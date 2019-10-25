@@ -1,6 +1,6 @@
 Test 
 =====
-Test module
+Test seo module
 
 Installation
 ------------
