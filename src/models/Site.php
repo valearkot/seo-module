@@ -31,7 +31,7 @@ class Site extends \yii\db\ActiveRecord
         return [
             [['url', 'title', 'keywords', 'description'], 'required'],
             [['url'], 'string'],
-            [[ 'title', 'keywords', 'description'], 'integer'],
+            [[ 'title', 'keywords', 'description'], 'string'],
         ];
     }
 
