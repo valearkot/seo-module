@@ -9,12 +9,12 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'url')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'url')->textInput() ?>
     <?php foreach ($language as $lang):?>
     <label>For <?=$lang?></label>
-        <?= $form->field($model, 'title['.$lang.']')->textInput()->label(false) ?>
-        <?= $form->field($model, 'keywords['.$lang.']')->textInput()->label(false) ?>
-        <?= $form->field($model, 'description['.$lang.']')->textarea(['rows' => 6])->label(false) ?>
+        <?= $form->field($model, 'title['.$lang.']')->textInput()->label() ?>
+        <?= $form->field($model, 'keywords['.$lang.']')->textInput()->label() ?>
+        <?= $form->field($model, 'description['.$lang.']')->textarea(['rows' => 6])->label() ?>
     <?php endforeach;?>
 
 
