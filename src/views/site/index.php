@@ -28,9 +28,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'url:ntext',
-            'description',
-            'title',
-            'keywords',
+            [
+                'label' => Yii::t('app', 'Title'),
+                'value' =>  function (\valearkot\yii2module\models\Site $model){
+                    return $model->titleText['message'];
+                },
+            ],
+            [
+                'label' => Yii::t('app', 'Keywords'),
+                'value' =>  function (\valearkot\yii2module\models\Site $model){
+                    return $model->keywordsText['message'];
+                },
+            ],
+            [
+                'label' => Yii::t('app', 'Description'),
+                'value' =>  function (\valearkot\yii2module\models\Site $model){
+                    return $model->descriptionText['message'];
+                },
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
