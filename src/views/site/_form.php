@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 ?>
@@ -9,15 +10,20 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'url')->textInput('class'=>'') ?>
+    <?= $form->field($model, 'url',[
+        'template' => '{label}<div class="input-group">
+        <span class="input-group-addon" id="basic-addon3">'.Url::base(true).'/</span>
+       {input}
+    </div>',
+    ])->textInput(['class'=>'form-control']) ?>
     <?php foreach ($all_title as $key => $value):?>
-        <?= $form->field($model, 'title['.$key.']')->textInput('value'=>$value])->label() ?>
+        <?= $form->field($model, 'title['.$key.']')->textInput(['value'=>$value])->label() ?>
     <?php endforeach;?>
     <?php foreach ($all_keywords as $key => $value):?>
-        <?= $form->field($model, 'title['.$key.']')->textInput('value'=>$value])->label() ?>
+        <?= $form->field($model, 'title['.$key.']')->textInput(['value'=>$value])->label() ?>
     <?php endforeach;?>
     <?php foreach ($all_description as $key => $value):?>
-        <?= $form->field($model, 'description['.$key.']')->textarea(['rows' => 6,'value'=>$value])->label() ?>
+        <?= $form->field($model, 'description['.$key.']')->textInput(['value'=>$value])->label() ?>
     <?php endforeach;?>
 
 
