@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\runtime\tmpextensions\mymodule\src\models\Site */
 
-$this->title = 'Update Site: ' . $model->title;
+$this->title = 'Update meta tags :' . $model->url;
 $this->params['breadcrumbs'][] = ['label' => 'Sites', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
