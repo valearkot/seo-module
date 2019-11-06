@@ -1,6 +1,6 @@
-Test 
-=====
 Seo module
+=====
+
 
 Installation
 ------------
