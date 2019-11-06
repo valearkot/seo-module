@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'url')->textInput() ?>
+    <?= $form->field($model, 'url')->textInput('class'=>'') ?>
     <?php foreach ($all_title as $key => $value):?>
         <?= $form->field($model, 'title['.$key.']')->textInput('value'=>$value])->label() ?>
     <?php endforeach;?>
