@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\runtime\tmpextensions\mymodule\src\models\Site */
 
-$this->title = 'Create Site';
+$this->title = 'Create new meta tags';
 $this->params['breadcrumbs'][] = ['label' => 'Sites', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
