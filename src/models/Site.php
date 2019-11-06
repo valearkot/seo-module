@@ -31,7 +31,6 @@ class Site extends \yii\db\ActiveRecord
         return [
             [['url', 'title', 'keywords', 'description'], 'required'],
             [['url'], 'string'],
-            [[ 'title', 'keywords', 'description'], 'string'],
         ];
     }
 
@@ -47,5 +46,20 @@ class Site extends \yii\db\ActiveRecord
             'keywords' => 'Keywords',
             'description' => 'Description',
         ];
+    }
+    
+    public function getTitleText()
+    {
+        return $this->hasOne(SourceMessage::className(), ['id' => 'title']);
+    }
+    
+    public function getKeywordsText()
+    {
+        return $this->hasOne(SourceMessage::className(), ['id' => 'keywords']);
+    }
+    
+    public function getDescriptionText()
+    {
+        return $this->hasOne(SourceMessage::className(), ['id' => 'description']);
     }
 }
