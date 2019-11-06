@@ -10,8 +10,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'url',[
-        'template' => '{label}<div class="input-group">
+     <?= $form->field($model, 'url',[
+        'template' => '{label} <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="For the homepage, enter the index"></span><div class="input-group">
         <span class="input-group-addon" id="basic-addon3">'.Url::base(true).'/</span>
        {input}
     </div>',
