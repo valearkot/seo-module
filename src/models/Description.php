@@ -100,7 +100,13 @@ class Description extends Model
         $site->title =$id_title;
         $site->keywords =$id_keywords;
         $site->description =$id_message;
-        $site->url = $this->url;
+        
+        if ($this->url != '/') {
+            $site->url = rtrim($this->url, '/');
+        } else {
+            $site->url = $this->url;
+        }
+        
         $site->save();
         return true;
     }
@@ -170,7 +176,12 @@ class Description extends Model
 
         }
 
-        $site->url = $this->url ;
+        if ($this->url != '/') {
+            $site->url = rtrim($this->url, '/');
+        } else {
+            $site->url = $this->url;
+        }
+        
         $site->save();
         return true;
     }
