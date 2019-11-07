@@ -8,11 +8,12 @@ use yii\widgets\ActiveForm;
 
 <div class="site-form">
 
+
     <?php $form = ActiveForm::begin(); ?>
 
-     <?= $form->field($model, 'url',[
-        'template' => '{label} <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="For the homepage, enter the index"></span><div class="input-group">
-        <span class="input-group-addon" id="basic-addon3">'.Url::base(true).'/</span>
+    <?= $form->field($model, 'url',[
+        'template' => '{label}<div class="input-group">
+        <span class="input-group-addon" id="basic-addon3">'.Url::base(true).'</span>
        {input}
     </div>',
     ])->textInput(['class'=>'form-control']) ?>
@@ -33,3 +34,17 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+<?php
+$js = <<<SCRIPT
+
+$(function () { 
+    $("[data-toggle='tooltip']").tooltip(); 
+});;
+
+$(function () { 
+    $("[data-toggle='popover']").popover(); 
+});
+SCRIPT;
+// Register tooltip/popover initialization javascript
+$this->registerJs($js);
+?>
