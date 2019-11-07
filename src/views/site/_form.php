@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'title['.$key.']')->textInput(['value'=>$value])->label() ?>
     <?php endforeach;?>
     <?php foreach ($all_keywords as $key => $value):?>
-        <?= $form->field($model, 'title['.$key.']')->textInput(['value'=>$value])->label() ?>
+        <?= $form->field($model, 'keywords['.$key.']')->textInput(['value'=>$value])->label() ?>
     <?php endforeach;?>
     <?php foreach ($all_description as $key => $value):?>
         <?= $form->field($model, 'description['.$key.']')->textInput(['value'=>$value])->label() ?>
