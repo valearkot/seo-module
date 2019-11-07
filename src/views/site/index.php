@@ -44,8 +44,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->descriptionText['message'];
                 },
             ],
-
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'header' => 'Action',
+                'template' => '{update} {delete}',
+                'buttons' => [
+                    'update' => function ($url, $model, $key) {
+                        return Html::a('', $url, ['class' => 'glyphicon glyphicon-pencil']);
+                    },
+                    'delet' => function ($url, $model, $key) {
+                        return Html::a('', $url, ['class' => 'glyphicon glyphicon-trash']);
+                    }
+                ],
+            ],
         ],
     ]); ?>
 
