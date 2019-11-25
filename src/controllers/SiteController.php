@@ -60,7 +60,10 @@ class SiteController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
-    {
+    {   
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect('/admin/default');
+        }
         $model = $this->findModel($id);
         $all_description = [];
         $source_message = SourceMessage::find()->where(['id' => $model['description']])->asArray()->one();
@@ -84,6 +87,9 @@ class SiteController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect('/admin/default');
+        }
         $params = Yii::$app->params;
         $language = $params['language'];
         $model = new Site();
@@ -111,7 +117,9 @@ class SiteController extends Controller
      */
     public function actionUpdate($id)
     {
-
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect('/admin/default');
+        }
         $model = $this->findModel($id);
         $all_description = [];
         $all_title = [];
